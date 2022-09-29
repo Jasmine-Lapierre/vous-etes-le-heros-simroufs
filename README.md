@@ -3,9 +3,9 @@
 
 # Les Simroufs
 
-[Développement web - Projet vous êtes le héros](https://smnarnold.com/projets/vous-etes-le-heros)
-**Genre** : Survie, guerre, gestion.
-**Inspiration** : Reigns
-**Palette de couleur** : jsp
+[Développement web - Projet vous êtes le héros](https://smnarnold.com/projets/vous-etes-le-heros)  
+**Genre** : Survie, guerre  
+**Inspiration** : Reigns  
+**Palette de couleur** : jsp  
 
 ## Diagramme
