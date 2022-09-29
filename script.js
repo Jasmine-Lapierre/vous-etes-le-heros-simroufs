@@ -20,7 +20,7 @@
 
     },
     aDefaiteDefense : {
-        subtitle: "Défaite!s",
+        subtitle: "Défaite!",
         text: "Après une longue attente, les fourmis s'endorment et des milliers d'abeilles detruisent le nid",
         img: "image3.jpg",
         options: [
@@ -38,7 +38,7 @@
         
     },    
     aDefaiteStrategie : {
-        subtitle: "Sed ut perspiciatis",
+        subtitle: "Défaite!",
         text: "La grande densité de troupes attirent d'autres prédateurs, l'armée est annihilée",
         img: "image5.jpg",
         options: [
@@ -46,7 +46,7 @@
           ]    
         },
     aDefaitePeinture : {
-        subtitle: "Sed ut perspiciatis",
+        subtitle: "Défaite!",
         text: "Les fourmis se font détecter par les abeilles et meurent",
         img: "image6.jpg",
         options: [
@@ -54,7 +54,7 @@
           ]    
         },             
     aCamouflage : {
-        subtitle: "Sed ut perspiciatis",
+        subtitle: "Défaite!",
         text: "devrait-on epargner la reine ou non?",
         img: "image7.jpg",
         options: [
@@ -64,7 +64,7 @@
         ]
     },  
     aDefaiteEpargner : {
-        subtitle: "Sed ut perspiciatis",
+        subtitle: "Défaite!",
         text: "Les abeilles ne sont pas du genre à abandoner et détruisent la colonie de fourmis",
         img: "image8.jpg",
         options: [
@@ -116,7 +116,7 @@
     },
     bVictoireAlliance: {
         subtitle: "Victoire!",
-        text: "Les abeilles se font convaincre et décident de s'allier à la colonie de fourmis. Les fourmis leurs apprennent à creuser des petits trous dans le sol et elles apprennent aux fourmis à créer de la peinture. Un drapeau d'amitié peint par les deux colonies est érigé au milieu de la colonie !!!.... mais est-ce vraiment la fin?",
+        text: "Les abeilles se font convaincre et décident de s'allier à la colonie de fourmis. Les fourmis leurs apprennent à creuser des petits trous dans le sol et elles apprennent aux fourmis à créer de la peinture. Un drapeau d'amitié peint par les deux colonies est érigé au milieu de la colonie!!!.... mais est-ce vraiment la fin? (La peinture est maintenant débloquée)",
         img: "image14.jpg",
         options: [
           {text: 'Recommencer?', action: 'goToChapter("accueil")'},
