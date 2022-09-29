@@ -9,4 +9,4 @@
 **Palette de couleur** : [Coolors](https://coolors.co/3b2121-482d2d-583b3b-e6b325-e8ba3c)
 
 ## Diagramme
-![Le diagramme](synopsis.png "Synopsis")
+![Le diagramme](assets/synopsis.png "Synopsis")
