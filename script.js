@@ -124,6 +124,9 @@
     },
   }
 function goToChapter(chapterName){
+    document.querySelector(".titre").textContent = chaptersObj[chapterName]['subtitle']
+    document.querySelector(".texte").textContent = chaptersObj[chapterName]['text']
+    document.querySelector(".image").innerHTML = "<img src='assets/"+ chaptersObj[chapterName]['img']+"'>";
     console.log(chaptersObj[chapterName]['subtitle']);
     console.log(chaptersObj[chapterName]['text']);
   }
