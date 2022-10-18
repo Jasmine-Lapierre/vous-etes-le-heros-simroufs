@@ -123,7 +123,20 @@
         ]
     },
   }
+
+chaptersObj["accueil"]
 function goToChapter(chapterName){
+  let optionsDiv = document.querySelector('.options');
+  optionsDiv.innerHTML=""
+    for (element of chaptersObj[chapterName]['options']){
+      let boutonsChoix = document.createElement("button")
+      boutonsChoix.setAttribute('onclick',element["action"])
+      boutonsChoix.setAttribute('type','button')
+      let boutonsTexte = document.createTextNode(element['text'])
+      boutonsChoix.appendChild(boutonsTexte)
+      optionsDiv.appendChild(boutonsChoix)
+    }
+     chaptersObj[chapterName]['options']
     document.querySelector(".titre").textContent = chaptersObj[chapterName]['subtitle']
     document.querySelector(".texte").textContent = chaptersObj[chapterName]['text']
     document.querySelector(".image").innerHTML = "<img src='assets/"+ chaptersObj[chapterName]['img']+"'>";
@@ -132,12 +145,3 @@ function goToChapter(chapterName){
   }
 
 
-  /*
-
-  diplomacie : {
-        subtitle: "Sed ut perspiciatis",
-        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam",
-        img: "fourmisok.jpg"
-    },
-
-    */
