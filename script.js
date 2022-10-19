@@ -5,8 +5,8 @@
         text: "Proche d'ne guerre entre les fourmis et les abeilles, vous, la reine des fourmis, devez resoudre le conflit imminent. Devriez-vous déclarer la guerre contre les abeilles ou tenter la diplomacie?",
         img: "fourmisok.jpg",
         options: [
-            {text: 'Guerre', action: 'aGuerre'},
-            {text: 'Diplomacie', action: 'bDiplomacie'},
+            {text: 'Guerre', action: 'goToChapter("aGuerre")'},
+            {text: 'Diplomacie', action: 'goToChapter("bDiplomacie")'},
                   ]
         },
     aGuerre : {
@@ -33,7 +33,7 @@
         img: "image4.jpg",
         options: [
             {text: 'Toutes les troupes.', action: 'goToChapter("aDefaiteStrategie")'},
-            {text: 'Petites ambuscades.', action: 'goToChapter("aCamouflage")'},
+            {text: 'Petites ambuscades.', action: 'peintureVerification("aCamouflage")'},
           ]
         
     },    
@@ -54,7 +54,7 @@
           ]    
         },             
     aCamouflage : {
-        subtitle: "Défaite!",
+        subtitle: "Épargner?",
         text: "devrait-on epargner la reine ou non?",
         img: "image7.jpg",
         options: [
@@ -81,12 +81,12 @@
         
     },
     bDiplomacie: {
-        subtitle: "Victoire!",
+        subtitle: "La diplomacie",
         text: "Le diplomate vous propose deux idées de génie. Soit il peut envoyer un texto à la reine des abeilles, car c'est le moyen de communication le plus rapide et qu'il n'y a pas de temps à perdre, soit il peut aller voir la reine des abeilles",
         img: "image10.jpg",
         options: [
           {text: 'Texto', action: 'goToChapter("bDefaiteTexto")'},
-          {text: 'Aller voir la reine', action: 'goToChapter("bDefaiteTexto")'},
+          {text: 'Aller voir la reine', action: 'goToChapter("bDirecte")'},
         ]
     },
     bDefaiteTexto: {
@@ -98,11 +98,11 @@
           ]
             },
     bDirecte: {
-        subtitle: "Victoire!",
+        subtitle: "Le discours",
         text: "Le diplomate arrive devant la reine des abeilles, mais que doit-il lui dire afin de règler le conflit? Il se demande s'il devrait donner un discours émouvant sur les ressemblances entre les abeilles et les fourmis, ou s'il devrait plutôt donner un discours rassembleur sur la haine commune envers les guêpes.",
         img: "image12.jpg",
         options: [
-          {text: 'Discours émouvant', action: 'goToChapter("dDefaiteEmouvant")'},
+          {text: 'Discours émouvant', action: 'goToChapter("bDefaiteEmouvant")'},
           {text: 'Discours rassembleur', action: 'goToChapter("bVictoireAlliance")'},
         ]
     },    
@@ -119,12 +119,28 @@
         text: "Les abeilles se font convaincre et décident de s'allier à la colonie de fourmis. Les fourmis leurs apprennent à creuser des petits trous dans le sol et elles apprennent aux fourmis à créer de la peinture. Un drapeau d'amitié peint par les deux colonies est érigé au milieu de la colonie!!!.... mais est-ce vraiment la fin? (La peinture est maintenant débloquée)",
         img: "image14.jpg",
         options: [
-          {text: 'Recommencer?', action: 'goToChapter("accueil")'},
+          {text: 'Recommencer?', action: 'peintureTrue("accueil")'},
         ]
     },
   }
+let peinture = false;
+goToChapter('accueil');
 
-chaptersObj["accueil"]
+
+function peintureTrue(chapterName){
+peinture = true;
+goToChapter(chapterName);
+}
+function peintureVerification(chapterName){
+  if (peinture){
+    goToChapter(chapterName)
+  }
+  else{
+    goToChapter('aDefaitePeinture');
+  }
+}
+
+
 function goToChapter(chapterName){
   let optionsDiv = document.querySelector('.options');
   optionsDiv.innerHTML=""
@@ -132,8 +148,7 @@ function goToChapter(chapterName){
       let boutonsChoix = document.createElement("button")
       boutonsChoix.setAttribute('onclick',element["action"])
       boutonsChoix.setAttribute('type','button')
-      let boutonsTexte = document.createTextNode(element['text'])
-      boutonsChoix.appendChild(boutonsTexte)
+      boutonsChoix.appendChild(document.createTextNode(element['text']))
       optionsDiv.appendChild(boutonsChoix)
     }
      chaptersObj[chapterName]['options']
