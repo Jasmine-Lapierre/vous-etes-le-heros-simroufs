@@ -159,4 +159,4 @@ function goToChapter(chapterName){
     console.log(chaptersObj[chapterName]['text']);
   }
 
-
+goToChapter('accueil')
