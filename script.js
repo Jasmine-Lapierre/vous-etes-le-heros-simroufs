@@ -4,6 +4,7 @@
         subtitle: "Le commencement",
         text: "Proche d'ne guerre entre les fourmis et les abeilles, vous, la reine des fourmis, devez resoudre le conflit imminent. Devriez-vous déclarer la guerre contre les abeilles ou tenter la diplomacie?",
         img: "fourmisok.jpg",
+        video:"video_accueil.mp4",
         options: [
             {text: 'Guerre', action: 'goToChapter("aGuerre")'},
             {text: 'Diplomacie', action: 'goToChapter("bDiplomacie")'},
@@ -23,6 +24,7 @@
         subtitle: "Défaite!",
         text: "Après une longue attente, les fourmis s'endorment et des milliers d'abeilles detruisent le nid",
         img: "image3.jpg",
+        video:"video_defaite_1.mp4",
         options: [
             {text: 'Recommencer', action: 'goToChapter("accueil")'},
           ]
@@ -41,6 +43,7 @@
         subtitle: "Défaite!",
         text: "La grande densité de troupes attirent d'autres prédateurs, l'armée est annihilée",
         img: "image5.jpg",
+        video:"video_defaite_2.mp4",
         options: [
             {text: 'Recommencer', action: 'goToChapter("accueil")'},
           ]    
@@ -49,6 +52,7 @@
         subtitle: "Défaite!",
         text: "Les fourmis se font détecter par les abeilles et meurent",
         img: "image6.jpg",
+        video:"video_defaite_3.mp4",
         options: [
             {text: 'Recommencer', action: 'goToChapter("accueil")'},
           ]    
@@ -67,6 +71,7 @@
         subtitle: "Défaite!",
         text: "Les abeilles ne sont pas du genre à abandoner et détruisent la colonie de fourmis",
         img: "image8.jpg",
+        video:"video_defaite_4.mp4",
         options: [
             {text: 'Recommencer', action: 'goToChapter("accueil")'},
           ]
@@ -75,6 +80,7 @@
         subtitle: "Victoire!",
         text: "La guerre est finie et les fourmis sont sauvées!",
         img: "image9.jpg",
+        video:"video_victoire_guerre.mp4",
         options: [
           {text: 'Recommencer', action: 'goToChapter("accueil")'},
         ]
@@ -93,6 +99,8 @@
         subtitle: "Défaite!",
         text: "Le diplomate a fait une faute d'orthographe et les abeilles sont très fâchées, car elles n'aiment pas les illéttrés. Elles décident d'attaquer la colonie et cette derniere se fait détruire.",
         img: "image11.jpg",
+        video:"video_defaite_5.mp4",
+
         options: [
             {text: 'Recommencer', action: 'goToChapter("accueil")'},
           ]
@@ -110,6 +118,8 @@
         subtitle: "Défaite!",
         text: "Les abeilles ne sont pas du tout convaincues et décident de tuer le diplomate et de détruire la colonie",
         img: "image13.jpg",
+        video:"video_defaite_6.mp4",
+
         options: [
             {text: 'Recommencer', action: 'goToChapter("accueil")'},
           ]
@@ -118,17 +128,18 @@
         subtitle: "Victoire!",
         text: "Les abeilles se font convaincre et décident de s'allier à la colonie de fourmis. Les fourmis leurs apprennent à creuser des petits trous dans le sol et elles apprennent aux fourmis à créer de la peinture. Un drapeau d'amitié peint par les deux colonies est érigé au milieu de la colonie!!!.... mais est-ce vraiment la fin? (La peinture est maintenant débloquée)",
         img: "image14.jpg",
+        video:"video_victoire_diplomacie.mp4",
         options: [
           {text: 'Recommencer?', action: 'peintureTrue("accueil")'},
         ]
     },
   }
-let peinture = false;
-goToChapter('accueil');
+let peinture;
 
 
 function peintureTrue(chapterName){
 peinture = true;
+localStorage.setItem("peinture",true)
 goToChapter(chapterName);
 }
 function peintureVerification(chapterName){
@@ -142,6 +153,22 @@ function peintureVerification(chapterName){
 
 
 function goToChapter(chapterName){
+  let audio1 = new Audio('assets/son_1.mp3');
+  let audio2 = new Audio('assets/son_2.mp3');
+  let audio3 = new Audio('assets/son_3.mp3');
+  nombreRandom = Math.ceil(Math.random()*3);
+
+  localStorage.setItem("nomChapitre", chapterName);
+
+if (nombreRandom==1){
+  audio1.play()
+}
+if (nombreRandom==2){
+  audio2.play()
+}
+if (nombreRandom==3){
+  audio3.play()
+}
   let optionsDiv = document.querySelector('.options');
   optionsDiv.innerHTML=""
     for (element of chaptersObj[chapterName]['options']){
@@ -154,10 +181,26 @@ function goToChapter(chapterName){
      chaptersObj[chapterName]['options']
     document.querySelector(".titre").textContent = chaptersObj[chapterName]['subtitle']
     document.querySelector(".texte").textContent = chaptersObj[chapterName]['text']
-    document.querySelector(".image").innerHTML = `<img src="assets/${chaptersObj[chapterName]['img']}"> `
+    if(chaptersObj[chapterName]["video"]){
+      document.querySelector(".image").innerHTML = `<video src="assets/${chaptersObj[chapterName]['video']}" autoplay muted loop> `
+    } else{    document.querySelector(".image").innerHTML = `<img src="assets/${chaptersObj[chapterName]['img']}"> `}
 
     console.log(chaptersObj[chapterName]['subtitle']);
     console.log(chaptersObj[chapterName]['text']);
+
+
   }
 
-goToChapter('accueil')
+
+  if (localStorage.getItem("nomChapitre")){
+    rendu = localStorage.getItem("nomChapitre")
+    goToChapter(rendu);
+  } else{
+    goToChapter("accueil")
+  }
+
+  if (localStorage.getItem("peinture")){
+    peinture = true;
+  }else{
+    peinture = false;
+  }
