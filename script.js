@@ -139,7 +139,7 @@ let peinture;
 
 function peintureTrue(chapterName){
 peinture = true;
-localStorage.setItem("peinture",true)
+localStorage.setItem("peinture","existe")
 goToChapter(chapterName);
 }
 function peintureVerification(chapterName){
@@ -193,8 +193,7 @@ if (nombreRandom==3){
 
 
   if (localStorage.getItem("nomChapitre")){
-    rendu = localStorage.getItem("nomChapitre")
-    goToChapter(rendu);
+    goToChapter(localStorage.getItem("nomChapitre"));
   } else{
     goToChapter("accueil")
   }
@@ -204,3 +203,4 @@ if (nombreRandom==3){
   }else{
     peinture = false;
   }
+
