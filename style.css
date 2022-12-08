@@ -3,6 +3,7 @@
     color:#FFFAE0;
     box-sizing: border-box;
     font-family: 'Source Sans Pro', sans-serif;
+    overflow: hidden;
 
 }
 body{
@@ -52,7 +53,7 @@ body{
     
 }
 .texte{
-    font-size: 35px;
+    font-size: 28px;
     margin-bottom: 14px;
     background-color: #583b3b;
     padding: 7px;
@@ -78,7 +79,12 @@ button{
     margin-top: 0px;
     cursor:pointer;
     box-shadow: rgba(230, 179, 37, 0.3) 0px 0px 20px;
-
+}
+.pipicaca{
+    text-align: center;
+    width: 80px;
+    height: 40px;
+    vertical-align: middle;
 }
 button:hover{
     color:#e6b325 ;
@@ -112,4 +118,8 @@ video{
     height: 200px;
     object-fit: cover;
 
+}
+.ResetAudio{
+    display: flex;
+    justify-content: space-between;
 }

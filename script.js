@@ -151,6 +151,7 @@ function peintureVerification(chapterName){
   }
 }
 
+let audioActivation = true;
 
 function goToChapter(chapterName){
   let audio1 = new Audio('assets/son_1.mp3');
@@ -160,13 +161,13 @@ function goToChapter(chapterName){
 
   localStorage.setItem("nomChapitre", chapterName);
 
-if (nombreRandom==1){
+if (audioActivation===true && nombreRandom===1){
   audio1.play()
 }
-if (nombreRandom==2){
+if (audioActivation===true && nombreRandom==2){
   audio2.play()
 }
-if (nombreRandom==3){
+if (audioActivation===true && nombreRandom==3){
   audio3.play()
 }
   let optionsDiv = document.querySelector('.options');
@@ -204,3 +205,21 @@ if (nombreRandom==3){
     peinture = false;
   }
 
+ function reset(){
+  peinture=false;
+  localStorage.clear();
+  goToChapter('accueil');
+}
+let boutonpipicaca = document.querySelector('.pipicaca')
+let boutonAudio = document.querySelector('#AudioCheckbox')
+boutonAudio.addEventListener('click',function(){
+  if (boutonAudio.checked){
+    audioActivation=true;
+  }else{
+    audioActivation=false
+  }
+})
+
+boutonpipicaca.addEventListener('click',function(){
+  reset();
+})
