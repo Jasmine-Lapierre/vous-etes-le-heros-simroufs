@@ -127,7 +127,9 @@ video{
     background-image:url(assets/chat_victoire.gif);
     animation-name: backgroundanim;
     background-position: 0 0;
-    animation-duration: 40s;
+    background-size: 25vw 25vh;
+
+    animation-duration: 35s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
 }
@@ -135,29 +137,33 @@ video{
     background-image: url(assets/the_rock.gif);
     animation-name: backgroundanim;
     background-position: 0 0;
-    animation-duration: 40s;
+    background-size: 25vw 25vh;
+
+    animation-duration: 35s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
 }
 body[class*="aDefaite"]{
     background-image: url(assets/chat_rip.gif);
     animation-name: backgroundanim;
+    background-size: 25vw 25vh;
     background-position: 0 0;
-    animation-duration: 40s;
+    animation-duration: 35s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
 }
 body[class*="bDefaite"]{
     background-image: url(assets/NOOO.gif);
     animation-name: backgroundanim;
+    background-size: 25vw 25vh;
+
     background-position: 0 0;
-    animation-duration: 40s;
+    animation-duration: 35s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
 }
 @keyframes backgroundanim{
     to{
         background-position-x: 1000%;
-        background-
     }
 }
