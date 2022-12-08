@@ -135,7 +135,7 @@
     },
   }
 let peinture;
-
+let bodyElement = document.querySelector('body')
 
 function peintureTrue(chapterName){
 peinture = true;
@@ -154,6 +154,7 @@ function peintureVerification(chapterName){
 let audioActivation = true;
 
 function goToChapter(chapterName){
+  bodyElement.className=chapterName;
   let audio1 = new Audio('assets/son_1.mp3');
   let audio2 = new Audio('assets/son_2.mp3');
   let audio3 = new Audio('assets/son_3.mp3');
